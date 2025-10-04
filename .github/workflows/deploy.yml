@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build
@@ -16,9 +19,12 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -45,5 +51,11 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
+          # Prefer the built-in GITHUB_TOKEN. If your repository or org restricts
+          # workflow permissions, create a Personal Access Token (repo scope)
+          # and add it as a repository secret named `GH_PAGES_PAT`, then the
+          # action will use that token instead.
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.GH_PAGES_PAT }}
           publish_dir: ./dist
+          publish_branch: gh-pages
