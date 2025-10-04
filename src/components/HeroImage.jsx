@@ -6,7 +6,7 @@ export default function HeroImage() {
         <>
             <div className="hero-image">
                 <div className="hero-text">
-                    <h1>I am Jane Doe</h1>
+                    <h1>I am Robert</h1>
                     <p>And I'm a Photographer</p>
                     <button>Hire me</button>
                 </div>

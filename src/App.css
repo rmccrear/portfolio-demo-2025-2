@@ -1,6 +1,7 @@
 /* App.css */
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 /* Center website */
@@ -60,4 +61,41 @@ h1 {
     .column {
         width: 100%;
     }
+}
+
+.my-container {
+    margin: auto;
+    width: 80%;
+}
+
+.my-navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #111;
+    color: antiquewhite;
+}
+
+.my-brand {
+    padding: 15px;
+    font-size: 24px;
+}
+
+.my-nav-items-container {
+    display: flex;
+}
+
+.my-nav-item {
+    padding: 15px;
+    font-size: 18px;
+    display: block;
+}
+
+.my-nav-item > a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.my-nav-item > a:visited {
+    text-decoration: none;
+    color: antiquewhite;
 }
